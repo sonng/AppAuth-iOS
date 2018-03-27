@@ -27,13 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @brief Perform an authorization flow using the default browser.
     @param request The authorization request.
     @param callback The method called when the request has completed or failed.
-    @return A @c OIDExternalUserAgentSession instance which will terminate when it
-        receives a @c OIDExternalUserAgentSession.cancel message, or after processing a
-        @c OIDExternalUserAgentSession.resumeExternalUserAgentFlowWithURL: message.
+    @return A @c OIDAuthorizationFlowSession instance which will terminate when it
+        receives a @c OIDAuthorizationFlowSession.cancel message, or after processing a
+        @c OIDAuthorizationFlowSession.resumeAuthorizationFlowWithURL: message.
  */
-+ (id<OIDExternalUserAgentSession, OIDAuthorizationFlowSession>)
-    presentAuthorizationRequest:(OIDAuthorizationRequest *)request
-                       callback:(OIDAuthorizationCallback)callback;
++ (id<OIDAuthorizationFlowSession>)presentAuthorizationRequest:(OIDAuthorizationRequest *)request
+                                                      callback:(OIDAuthorizationCallback)callback;
 @end
 
 NS_ASSUME_NONNULL_END

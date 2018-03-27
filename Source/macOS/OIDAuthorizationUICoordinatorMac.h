@@ -1,4 +1,4 @@
-/*! @file OIDAuthState+Mac.m
+/*! @file OIDAuthorizationUICoordinatorMac.h
     @brief AppAuth iOS SDK
     @copyright
         Copyright 2016 Google Inc. All Rights Reserved.
@@ -16,19 +16,19 @@
         limitations under the License.
  */
 
-#import "OIDAuthState+Mac.h"
+#import "OIDAuthorizationUICoordinator.h"
 
-#import "OIDAuthorizationUICoordinatorMac.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@implementation OIDAuthState (Mac)
-
-+ (id<OIDAuthorizationFlowSession>)
-    authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest
-                                     callback:(OIDAuthStateAuthorizationCallback)callback {
-  OIDAuthorizationUICoordinatorMac *coordinator = [[OIDAuthorizationUICoordinatorMac alloc] init];
-  return [self authStateByPresentingAuthorizationRequest:authorizationRequest
-                                           UICoordinator:coordinator
-                                                callback:callback];
+/*! @brief An Mac specific authorization UI Coordinator that uses the default browser to
+        present an authorization request.
+ */
+@interface OIDAuthorizationUICoordinatorMac : NSObject <OIDAuthorizationUICoordinator> {
+  // private variables
+  BOOL _authorizationFlowInProgress;
+  __weak id<OIDAuthorizationFlowSession> _session;
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

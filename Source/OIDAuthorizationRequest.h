@@ -20,7 +20,6 @@
 
 // These files only declare string constants useful for constructing a @c OIDAuthorizationRequest,
 // so they are imported here for convenience.
-#import "OIDExternalUserAgentRequest.h"
 #import "OIDResponseTypes.h"
 #import "OIDScopes.h"
 
@@ -38,7 +37,7 @@ extern NSString *const OIDOAuthorizationRequestCodeChallengeMethodS256;
     @see https://tools.ietf.org/html/rfc6749#section-4
     @see https://tools.ietf.org/html/rfc6749#section-4.1.1
  */
-@interface OIDAuthorizationRequest : NSObject <NSCopying, NSSecureCoding, OIDExternalUserAgentRequest> {
+@interface OIDAuthorizationRequest : NSObject <NSCopying, NSSecureCoding> {
   // property variables
   OIDServiceConfiguration *_configuration;
   NSString *_responseType;
